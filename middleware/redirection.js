@@ -2,8 +2,6 @@ export default function ({ app, route, redirect }) {
   const cookie = getOrSetCookie(app);
   const id = route.params.ref;
 
-  console.log(cookie, route.name, id);
-
   switch(cookie) {
     case 'A':
       if (route.name !== 'legacy-ref') {
@@ -34,7 +32,6 @@ function getOrSetCookie(app) {
   let cookieValue = app.$cookies.get('abc-value');
   if (app.$cookies.get('abc-value') === undefined) {
     const val = Math.floor(Math.random() * 3);
-    console.log(val);
     cookieValue = ['A', 'B', 'C'][val];
     app.$cookies.set('abc-value', cookieValue);
   }
